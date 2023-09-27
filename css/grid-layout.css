@@ -1,0 +1,27 @@
+.grid_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "accomplish_wish interesting_facts"
+                         "accomplish_wish name_final"
+                         "fav_quote fav_quote";
+    grid-gap: 1em;
+}
+
+main article {
+    background-color: rgb(151, 196, 214);
+}
+
+
+.accomplish_wish {
+    grid-area: accomplish_wish;
+}
+.interesting_facts {
+    grid-area: interesting_facts;
+}
+.name_final {
+    grid-area: name_final;
+}
+.fav_quote {
+    grid-area: fav_quote;
+}
