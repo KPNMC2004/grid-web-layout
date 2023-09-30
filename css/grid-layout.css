@@ -1,15 +1,50 @@
+@charset "utf-8";
+
+:root {
+--grid-item-background-color: rgb(28, 91, 94);
+--grid-item-text-color: white;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 2em;
+}
+
+
+body::after {
+    content: "";
+    position: absolute;
+    background-image: url("/images/20230827_055819.png");
+    background-size: cover;
+    background-position: center;   
+
+    z-index: -1;
+    inset: 0;       
+    opacity: .50;
+}
+
 .grid_container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1.25fr 1.25fr 1fr;
     grid-template-areas: "accomplish_wish interesting_facts"
                          "accomplish_wish name_final"
                          "fav_quote fav_quote";
     grid-gap: 1em;
+
 }
 
 main article {
-    background-color: rgb(151, 196, 214);
+    background-color: var(--grid-item-background-color);
+    color: var(--grid-item-text-color)
+}
+
+.accomplish_wish,
+.interesting_facts,
+.name_final,
+.fav_quote {
+    padding: 20px;
+    box-shadow:  .5em .75em  8px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -25,3 +60,4 @@ main article {
 .fav_quote {
     grid-area: fav_quote;
 }
+
