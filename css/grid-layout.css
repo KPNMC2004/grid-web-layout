@@ -1,68 +1,121 @@
 @charset "utf-8";
 
 :root {
---grid-item-background-color: rgb(28, 91, 94);
---grid-item-text-color: white;
+--grid-item-on-light-text-color: black;
+--grid-item-on-dark-text-color: white;
 }
 
+/* body layout */
 body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-
+ 
+/* setup for background image to have its opacity be modified independently */
+    /* 
+        Changing position to absolute and inset to 0 ensures image
+        stays at the same place whilst enabling z-index. 
+    */
 body::after {
     content: "";
     position: absolute;
+
+    /*body background image setup */
     background-image: url("/images/background-image.png");
     background-size: cover;
-    background-position: center;   
+    background-position: center;  
+    background-repeat: repeat; 
 
     z-index: -1;
-    inset: 0;       
+    inset: 0;
+
     opacity: .5;
 }
 
+/* main element layout */
 main {
-    margin: 2em;
+    margin: 5em auto;
+    max-width: 85%;
 }
 
+/* grid container setup */
 .grid_container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1.25fr 1.25fr 1fr;
+    grid-template-rows: 1.25fr 1.25fr auto;
     grid-template-areas: "accomplish_wish interesting_facts"
                          "accomplish_wish name_final"
                          "fav_quote fav_quote";
-    grid-gap: 1em;
-
+    grid-gap: 2em;
 }
 
-main article {
-    background-color: var(--grid-item-background-color);
-    color: var(--grid-item-text-color)
-}
-
+/* set grid-item shadows and padding */
 .accomplish_wish,
 .interesting_facts,
 .name_final,
 .fav_quote {
     padding: 20px;
-    box-shadow:  .5em .75em  8px rgba(0, 0, 0, 0.5);
+    box-shadow:  .75em 1em  8px rgba(0, 0, 0, 0.5);
+
+    border-radius: .5em;
 }
 
+/* grid-item specific styling */
 
+    /* styling for accomplish_wish and children */
 .accomplish_wish {
     grid-area: accomplish_wish;
+
+    background-color: rgba(253, 205, 84, 0.671);
+    color: var(--grid-item-on-light-text-color);
+
+    font-size: 1.2em;
 }
+    /* styling for interest_facts and children */
 .interesting_facts {
     grid-area: interesting_facts;
-}
-.name_final {
-    grid-area: name_final;
-}
-.fav_quote {
-    grid-area: fav_quote;
+
+    background-color: rgba(126, 147, 231, 0.671);
+    color: var(--grid-item-on-light-text-color);
 }
 
+    /* styling for name_final and children */
+.name_final {
+    grid-area: name_final;
+
+    background-color: rgba(152, 142, 201, 0.623);
+    font-size: 1.2em;
+}
+
+    /* styling for fav quote and children */
+.fav_quote {
+    grid-area: fav_quote;
+    
+    background-color: rgba(164, 230, 94, 0.849);
+
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.fav_quote blockquote {
+    font-size: 1.75em;
+
+    margin-bottom: .5em;
+}
+
+.fav_quote blockquote::before , .fav_quote blockquote::after {
+    font-size: 2em;
+    /* font-family: 'Courier New', Courier, monospace; */
+}
+
+.fav_quote blockquote::before {
+    content: open-quote;
+
+}
+
+.fav_quote blockquote::after {
+    content: close-quote;
+}
