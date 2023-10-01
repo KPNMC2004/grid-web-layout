@@ -37,8 +37,7 @@ body::after {
 
 /* main element layout */
 main {
-    margin: 5em auto;
-    max-width: 85%;
+    margin: 4em;
 }
 
 /* grid container setup */
@@ -61,6 +60,7 @@ main {
     box-shadow:  .75em 1em  8px rgba(0, 0, 0, 0.5);
 
     border-radius: .5em;
+    border: 7.5px double rgba(105, 105, 105, 0.664);
 }
 
 /* grid-item specific styling */
@@ -80,6 +80,8 @@ main {
 
     background-color: rgba(126, 147, 231, 0.671);
     color: var(--grid-item-on-light-text-color);
+
+    font-size: 1.2em;
 }
 
     /* styling for name_final and children */
@@ -104,6 +106,7 @@ main {
     font-size: 1.75em;
 
     margin-bottom: .5em;
+    margin: auto;
 }
 
 .fav_quote blockquote::before , .fav_quote blockquote::after {
